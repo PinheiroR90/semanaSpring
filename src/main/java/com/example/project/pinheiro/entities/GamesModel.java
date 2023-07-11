@@ -10,35 +10,41 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_name")
+@Table(name = "tb_game")
 public class GamesModel {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
-	private String genre;
+	
 	@Column(name = "game_year")
 	private Integer year;
+	private String genre;
 	private String platforms;
-	private Double scores;
+	private Double score;
 	private String imgUrl;
-	private String shortDescripotion;
+	
+	@Column(columnDefinition = "TEXT")
+	private String shortDescription;
+
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
-	public GamesModel() {
-	}
-	
-	public GamesModel(Long id, String title, String genre, Integer year, String platforms, Double scores, String imgUrl,
-			String shortDescripotion, String longDescription) {
+    public GamesModel() {
+    }
+    
+	public GamesModel(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
-		this.genre = genre;
 		this.year = year;
+		this.genre = genre;
 		this.platforms = platforms;
-		this.scores = scores;
+		this.score = score;
 		this.imgUrl = imgUrl;
-		this.shortDescripotion = shortDescripotion;
-		this.longDescription = longDescription;
+		this.shortDescription = shortDescription;
+		this.longDescription = longDescription;		
 	}
 
 	public Long getId() {
@@ -57,20 +63,20 @@ public class GamesModel {
 		this.title = title;
 	}
 
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
-	}
-
 	public Integer getYear() {
 		return year;
 	}
 
 	public void setYear(Integer year) {
 		this.year = year;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 	public String getPlatforms() {
@@ -81,12 +87,12 @@ public class GamesModel {
 		this.platforms = platforms;
 	}
 
-	public Double getScores() {
-		return scores;
+	public Double getScore() {
+		return score;
 	}
 
-	public void setScores(Double scores) {
-		this.scores = scores;
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	public String getImgUrl() {
@@ -97,12 +103,12 @@ public class GamesModel {
 		this.imgUrl = imgUrl;
 	}
 
-	public String getShortDescripotion() {
-		return shortDescripotion;
+	public String getShortDescription() {
+		return shortDescription;
 	}
 
-	public void setShortDescripotion(String shortDescripotion) {
-		this.shortDescripotion = shortDescripotion;
+	public void setShortDescription(String shortDescription) {
+		this.shortDescription = shortDescription;
 	}
 
 	public String getLongDescription() {
@@ -129,6 +135,4 @@ public class GamesModel {
 		GamesModel other = (GamesModel) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 }

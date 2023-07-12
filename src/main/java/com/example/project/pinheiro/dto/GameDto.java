@@ -2,6 +2,8 @@ package com.example.project.pinheiro.dto;
 
 import org.springframework.beans.BeanUtils;
 
+import com.example.project.pinheiro.entities.GamesModel;
+
 public class GameDto {
 
 	private Long id;
@@ -18,7 +20,7 @@ public class GameDto {
 	public GameDto() {
 	}
 	
-	public GameDto(GameDto entity) {
+	public GameDto(GamesModel entity) {
 		BeanUtils.copyProperties(entity, this);
 	}
 

@@ -19,4 +19,10 @@ public class GameService {
 		List<GameMinDto> dto = result.stream().map(x -> new GameMinDto(x)).toList();
 		return dto;
 	}
+	
+	public GameDto findById(Long id) {
+		 GamesModel result = gameRepository.findById(id).get();
+		 GameDto dto = new GameDto(result);
+		 return dto;
+	}
 }

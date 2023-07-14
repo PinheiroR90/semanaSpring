@@ -1,10 +1,7 @@
 package com.example.project.pinheiro.dto;
 
 import com.example.project.pinheiro.entities.GamesModel;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+import com.example.project.pinheiro.projections.GameMinProjection;
 
 public class GameMinDto {
 	private Long id;
@@ -24,6 +21,14 @@ public class GameMinDto {
 		shortDescription = entity.getShortDescription();
 	}
 
+	public GameMinDto(GameMinProjection projection ) {
+		id = projection.getId();
+		title = projection.getTitle();
+		year = projection.getYear();
+		imgUrl = projection.getImgUrl();
+		shortDescription = projection.getShortDescription();
+	}
+	
 	public Long getId() {
 		return id;
 	}
